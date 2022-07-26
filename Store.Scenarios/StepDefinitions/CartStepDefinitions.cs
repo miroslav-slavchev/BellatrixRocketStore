@@ -1,3 +1,4 @@
+using BoDi;
 using NUnit.Framework;
 using Store.Scenarios.Hooks;
 using System;
@@ -8,6 +9,8 @@ namespace Store.Scenarios.StepDefinitions
     [Binding]
     public class CartStepDefinitions : BaseTests
     {
+        private Table _billingDetails;
+
         [When(@"Add to cart button is clicked for (.*) in stock item")]
         public void WhenAddToCartButtonIsClickedForItemInStockItem(string itemName)
         {
@@ -29,10 +32,22 @@ namespace Store.Scenarios.StepDefinitions
         [When(@"Billing details are entered in Checkout page")]
         public void WhenBillingDetailsAreEnteredInCheckoutPage(Table table)
         {
+            _billingDetails = table;
             var data = table.Rows.First();
             foreach (var field in data.Keys)
             {
                 App.CheckoutPage.GetControl(field).SetData(data[field]);
+            }
+        }
+
+        [Then(@"Billing details data should be correct")]
+        public void ThenBillingDetailsDataShouldBeCorrect()
+        {
+            var data = _billingDetails.Rows.First();
+            foreach (var field in data.Keys)
+            {
+                var value = App.CheckoutPage.GetControl(field).ActualData;
+                Assert.AreEqual(data[field], value);
             }
         }
 

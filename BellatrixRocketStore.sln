@@ -5,8 +5,6 @@ VisualStudioVersion = 17.2.32505.173
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Library", "Store.PageObjects\Store.Library.csproj", "{CBDD7C5F-E427-4C8D-B5CD-9AAE56B80FCC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Tests", "Store.Tests\Store.Tests.csproj", "{0669FE05-BE39-41B6-986D-EA080E270643}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Scenarios", "Store.Scenarios\Store.Scenarios.csproj", "{1F51CBD8-0293-471A-A54C-C7A9F1B5C3C7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Application", "Store.App\Store.Application.csproj", "{A14EBA04-6ACF-4F94-8672-A074A6EB5DF0}"
@@ -21,10 +19,6 @@ Global
 		{CBDD7C5F-E427-4C8D-B5CD-9AAE56B80FCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBDD7C5F-E427-4C8D-B5CD-9AAE56B80FCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBDD7C5F-E427-4C8D-B5CD-9AAE56B80FCC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0669FE05-BE39-41B6-986D-EA080E270643}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0669FE05-BE39-41B6-986D-EA080E270643}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0669FE05-BE39-41B6-986D-EA080E270643}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0669FE05-BE39-41B6-986D-EA080E270643}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1F51CBD8-0293-471A-A54C-C7A9F1B5C3C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1F51CBD8-0293-471A-A54C-C7A9F1B5C3C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F51CBD8-0293-471A-A54C-C7A9F1B5C3C7}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -52,6 +52,16 @@ Scenario: Add Falcon 9 and place order
 		| Falcon 9 × 1 | 50.00€ | 50.00€    | 0.00€ | Direct bank transfer | 50.00€ |
 
 
+
+Scenario: Enter billing details
+	When Add to cart button is clicked for Falcon 9 in stock item
+	And View cart button is clicked for Falcon 9 in stock item
+	And Proceed to checkout button is clicked in Cart page
+	And Billing details are entered in Checkout page
+		| First name | Last name | Country / Region | Street address | Town / City | County | Phone     | Email address     |
+		| John       | Doe       | Ireland          | Teststr.       | Cavan       | Cavan  | 000111222 | email@example.com |
+	Then Billing details data should be correct
+
 Scenario Outline: Validate that all of the listed items are on sale
 	When <Name> Shop item is opened
 	Then The item must be on sale

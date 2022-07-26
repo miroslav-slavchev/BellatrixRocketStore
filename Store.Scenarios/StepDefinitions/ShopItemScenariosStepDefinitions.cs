@@ -1,3 +1,4 @@
+using BoDi;
 using NUnit.Framework;
 using Store.Application;
 using Store.Library.PageComponents.PageObjects.ShopItems;

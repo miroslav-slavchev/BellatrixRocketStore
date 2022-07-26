@@ -16,7 +16,7 @@ namespace Store.Library.PageComponents.Controls
         {
         }
 
-        public override string ActualData => SearchContext.Text;
+        public override string ActualData => SelectExpand.Text;
 
         public override void SetData(string data)
         {

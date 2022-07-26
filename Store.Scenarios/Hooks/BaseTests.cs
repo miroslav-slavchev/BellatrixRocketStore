@@ -7,21 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Store.Library;
+using BoDi;
 
 namespace Store.Scenarios.Hooks
 {
     [Binding]
     public class BaseTests
     {
-        private DriverManager DriverManager { get; set; }
-        protected App App { get; private set; }
+        protected DriverManager DriverManager { get; set; }
+        protected App App { get; set; }
 
         [BeforeScenario(Order = 1)]
         public void StartBrowser()
         {
             DriverManager = new DriverManager();
             DriverManager.Start();
-            App = new App(DriverManager.Driver);
+            App = new(DriverManager.Driver);
         }
 
         [AfterScenario]
@@ -29,5 +30,6 @@ namespace Store.Scenarios.Hooks
         {
             DriverManager.Quit();
         }
+
     }
 }

@@ -373,16 +373,13 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Validate that all of the listed items are on sale")]
-        [NUnit.Framework.TestCaseAttribute("Proton-M", null)]
-        [NUnit.Framework.TestCaseAttribute("Falcon 9", null)]
-        public virtual void ValidateThatAllOfTheListedItemsAreOnSale(string name, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Enter billing details")]
+        public virtual void EnterBillingDetails()
         {
-            string[] tagsOfScenario = exampleTags;
+            string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("Name", name);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate that all of the listed items are on sale", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 55
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Enter billing details", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 56
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -405,10 +402,80 @@ this.ScenarioInitialize(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line hidden
-#line 56
+#line 57
+ testRunner.When("Add to cart button is clicked for Falcon 9 in stock item", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 58
+ testRunner.And("View cart button is clicked for Falcon 9 in stock item", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 59
+ testRunner.And("Proceed to checkout button is clicked in Cart page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+                TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                            "First name",
+                            "Last name",
+                            "Country / Region",
+                            "Street address",
+                            "Town / City",
+                            "County",
+                            "Phone",
+                            "Email address"});
+                table6.AddRow(new string[] {
+                            "John",
+                            "Doe",
+                            "Ireland",
+                            "Teststr.",
+                            "Cavan",
+                            "Cavan",
+                            "000111222",
+                            "email@example.com"});
+#line 60
+ testRunner.And("Billing details are entered in Checkout page", ((string)(null)), table6, "And ");
+#line hidden
+#line 63
+ testRunner.Then("Billing details data should be correct", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Validate that all of the listed items are on sale")]
+        [NUnit.Framework.TestCaseAttribute("Proton-M", null)]
+        [NUnit.Framework.TestCaseAttribute("Falcon 9", null)]
+        public virtual void ValidateThatAllOfTheListedItemsAreOnSale(string name, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Name", name);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate that all of the listed items are on sale", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 65
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 4
+this.FeatureBackground();
+#line hidden
+#line 66
  testRunner.When(string.Format("{0} Shop item is opened", name), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 57
+#line 67
  testRunner.Then("The item must be on sale", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -422,7 +489,7 @@ this.FeatureBackground();
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate that Proton Rocket is on sale", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 64
+#line 74
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -445,10 +512,10 @@ this.ScenarioInitialize(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line hidden
-#line 65
+#line 75
  testRunner.When("Proton Rocket Shop item is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 66
+#line 76
  testRunner.Then("The item must be on sale", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
