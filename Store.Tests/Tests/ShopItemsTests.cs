@@ -18,7 +18,7 @@ namespace Store.Tests.Tests
         [Test]
         public void AddItem()
         {
-            InStockShopItem protonRocket = ShopPage.GetInStockShopItem("Proton Rocket");
+            InStockShopItem protonRocket = ShopPage.Items.GetInStockShopItem("Proton Rocket");
             Assert.IsTrue(protonRocket.HasSaleLabel);
             protonRocket.AddToCart();
             protonRocket.ViewCart();

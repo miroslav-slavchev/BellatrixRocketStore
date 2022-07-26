@@ -30,6 +30,7 @@ namespace Store.Library.PageComponents.PageObjects.ShopItems
         public double OriginalPrice => GetPrice(OriginalPriceElement);
 
         public double CurrentPrice => GetPrice(CurrentPriceElement);
+
         protected double GetPrice(IWebElement element)
         {
             StringBuilder text = new StringBuilder(element.Text);

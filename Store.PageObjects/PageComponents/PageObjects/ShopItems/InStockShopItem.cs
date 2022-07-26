@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Store.Library.PageComponents.PageObjects.ShopItems
 {
-    public class InStockShopItem : ShopItem
+    public class InStockShopItem : ShopItem, IAddToCart
     {
         private IWebElement AddToCartElement => SearchContext.FindElement(By.CssSelector("a[href*='add-to-cart']"));
         private IWebElement ViewCartElement => SearchContext.FindElement(By.CssSelector("a[title='View cart']"));

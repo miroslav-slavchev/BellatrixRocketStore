@@ -20,7 +20,7 @@ namespace Store.Scenarios.StepDefinitions
         [Then(@"(.*) shop items must be shown")]
         public void ThenShopItemsMustBeShown(int count)
         {
-            App.ShopPage.AllShopItems.Count.Should().Be(count);
+            App.ShopPage.Items.AllShopItems.Count.Should().Be(count);
         }
 
         [Then(@"The items data should be")]
@@ -29,7 +29,7 @@ namespace Store.Scenarios.StepDefinitions
             for (int i = 0; i < table.Rows.Count;i++)
             {
                 var row = table.Rows[i];
-                var item = App.ShopPage.AllShopItems.ElementAt(i);
+                var item = App.ShopPage.Items.AllShopItems.ElementAt(i);
                 ValidateItem(item, row);
             }
         }
@@ -45,7 +45,7 @@ namespace Store.Scenarios.StepDefinitions
         [When(@"(.*) Shop item is opened")]
         public void WhenShopItemIsOpened(string itemName)
         {
-            App.ShopPage.GetShopItem(itemName).Open();
+            App.ShopPage.Items.GetShopItem(itemName).Open();
         }
 
         [Then(@"The item must be on sale")]
@@ -63,7 +63,7 @@ namespace Store.Scenarios.StepDefinitions
         [When(@"Read More Button is clicked for (.*) out of stock item")]
         public void WhenReadMoreButtonIsClickedForOutOfStockItem(string itemName)
         {
-            var item = App.ShopPage.GetOutOfStockShopItem(itemName);
+            var item = App.ShopPage.Items.GetOutOfStockShopItem(itemName);
             item.ReadMore();
         }
 

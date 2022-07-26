@@ -11,13 +11,13 @@ namespace Store.Scenarios.StepDefinitions
         [When(@"Add to cart button is clicked for (.*) in stock item")]
         public void WhenAddToCartButtonIsClickedForItemInStockItem(string itemName)
         {
-            App.ShopPage.GetInStockShopItem(itemName).AddToCart();
+            App.ShopPage.Items.GetInStockShopItem(itemName).AddToCart();
         }
 
         [When(@"View cart button is clicked for (.*) in stock item")]
         public void WhenViewCartButtonIsClickedForItemInStockItem(string itemName)
         {
-            App.ShopPage.GetInStockShopItem(itemName).ViewCart();
+            App.ShopPage.Items.GetInStockShopItem(itemName).ViewCart();
         }
 
         [When(@"Proceed to checkout button is clicked in Cart page")]

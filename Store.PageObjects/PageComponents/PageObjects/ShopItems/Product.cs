@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using Store.Library.PageComponents.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Store.Library.PageComponents.PageObjects.ShopItems
 {
-    public class Product : BellatrixProduct
+    public abstract class Product : BellatrixProduct
     {
         protected override IWebElement NameElement => SearchContext.FindElement(By.TagName("h1"));
         private IReadOnlyCollection<IWebElement> OutOfStockElement => SearchContext.FindElements(By.ClassName("out-of-stock"));
@@ -31,5 +30,6 @@ namespace Store.Library.PageComponents.PageObjects.ShopItems
         {
             CategoryElement.Click();
         }
+
     }
 }
