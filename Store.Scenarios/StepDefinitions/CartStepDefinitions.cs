@@ -1,5 +1,6 @@
 using BoDi;
 using NUnit.Framework;
+using Store.Library;
 using Store.Scenarios.Hooks;
 using System;
 using TechTalk.SpecFlow;
@@ -7,9 +8,11 @@ using TechTalk.SpecFlow;
 namespace Store.Scenarios.StepDefinitions
 {
     [Binding]
-    public class CartStepDefinitions : BaseTests
+    public class CartStepDefinitions : BaseTest
     {
-        private Table _billingDetails;
+        public CartStepDefinitions(App app, Dictionary<string, dynamic> testData) : base(app, testData)
+        {
+        }
 
         [When(@"Add to cart button is clicked for (.*) in stock item")]
         public void WhenAddToCartButtonIsClickedForItemInStockItem(string itemName)
@@ -32,7 +35,7 @@ namespace Store.Scenarios.StepDefinitions
         [When(@"Billing details are entered in Checkout page")]
         public void WhenBillingDetailsAreEnteredInCheckoutPage(Table table)
         {
-            _billingDetails = table;
+            TestData.Add("BillingDetails", table);
             var data = table.Rows.First();
             foreach (var field in data.Keys)
             {
@@ -43,7 +46,7 @@ namespace Store.Scenarios.StepDefinitions
         [Then(@"Billing details data should be correct")]
         public void ThenBillingDetailsDataShouldBeCorrect()
         {
-            var data = _billingDetails.Rows.First();
+            var data = ((Table)TestData["BillingDetails"]).Rows.First();
             foreach (var field in data.Keys)
             {
                 var value = App.CheckoutPage.GetControl(field).ActualData;

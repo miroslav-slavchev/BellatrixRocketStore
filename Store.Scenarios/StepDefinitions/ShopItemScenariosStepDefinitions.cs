@@ -1,6 +1,7 @@
 using BoDi;
 using NUnit.Framework;
 using Store.Application;
+using Store.Library;
 using Store.Library.PageComponents.PageObjects.ShopItems;
 using Store.Scenarios.Hooks;
 using System;
@@ -9,8 +10,17 @@ using TechTalk.SpecFlow;
 namespace Store.Scenarios.StepDefinitions
 {
     [Binding]
-    public class ShopItemScenariosStepDefinitions : BaseTests
+    public class ShopItemScenariosStepDefinitions : BaseTest
     {
+        public ShopItemScenariosStepDefinitions(App app, Dictionary<string, dynamic> testData) : base(app, testData)
+        {
+        }
+
+        [Given(@"Store Home page is loaded")]
+        public void GivenStoreHomePageIsLoaded()
+        {
+            App.Navigation.OpenHomePage();
+        }
 
         [When(@"(.*) sort order is applied")]
         public void WhenSortOrderIsApplied(string sortOrder)
@@ -53,12 +63,6 @@ namespace Store.Scenarios.StepDefinitions
         public void ThenTheItemMustBeOnSale()
         {
             App.ShopItemPage.Product.HasSaleLabel.Should().BeTrue();
-        }
-
-
-        [Given(@"Store Home page is loaded")]
-        public void GivenStoreHomePageIsLoaded()
-        {
         }
 
         [When(@"Read More Button is clicked for (.*) out of stock item")]

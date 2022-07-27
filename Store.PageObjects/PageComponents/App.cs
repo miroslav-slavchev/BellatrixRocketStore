@@ -26,5 +26,7 @@ namespace Store.Library
         public CartPage CartPage { get; init; }
 
         public CheckoutPage CheckoutPage { get; init; }
+
+        public Navigation Navigation => new (Driver.FindElement(By.ClassName("storefront-primary-navigation")));
     }
 }

@@ -12,17 +12,31 @@ using BoDi;
 namespace Store.Scenarios.Hooks
 {
     [Binding]
-    public class BaseTests
+    public class MainHooks
     {
+        private IObjectContainer ObjectContainer { get; set; }
         protected DriverManager DriverManager { get; set; }
-        protected App App { get; set; }
+
+        public MainHooks(IObjectContainer objectContainer)
+        {
+            ObjectContainer = objectContainer;
+        }
 
         [BeforeScenario(Order = 1)]
         public void StartBrowser()
         {
             DriverManager = new DriverManager();
             DriverManager.Start();
-            App = new(DriverManager.Driver);
+            ObjectContainer.RegisterInstanceAs(DriverManager);
+        }
+
+        [BeforeScenario(Order = 2)]
+        public void InitObjects()
+        {
+            App app = new(DriverManager.Driver);
+            ObjectContainer.RegisterInstanceAs(app);
+            Dictionary<string, dynamic> testData = new();
+            ObjectContainer.RegisterInstanceAs(testData);
         }
 
         [AfterScenario]
